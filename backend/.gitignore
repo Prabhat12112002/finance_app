@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+*.sqlite3
+*.db
+*.env
+.env.*
+.envrc
+venv/
+ENV/
+env/
+myenv/
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.bak
+*.tmp
+# Test and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+# FastAPI/Starlette
+instance/
+# VSCode
+.vscode/
+# OS
+Thumbs.db
+Desktop.ini
