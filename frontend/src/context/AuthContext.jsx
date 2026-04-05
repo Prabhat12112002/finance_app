@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { getMe, login as apiLogin } from '../api/finance'
+import { setCurrentUser } from '../api/mockData'
 
 const AuthContext = createContext(null)
 
@@ -10,9 +11,21 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
+      // Extract user ID from mock token (format: mock_token_{userId}_{timestamp})
+      const parts = token.split('_')
+      if (parts.length >= 3) {
+        const userId = parseInt(parts[2])
+        if (!isNaN(userId)) {
+          setCurrentUser(userId)
+        }
+      }
+      
       getMe()
         .then(setUser)
-        .catch(() => localStorage.removeItem('token'))
+        .catch(() => {
+          localStorage.removeItem('token')
+          setCurrentUser(null)
+        })
         .finally(() => setLoading(false))
     } else {
       setLoading(false)
@@ -28,6 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('token')
+    setCurrentUser(null)
     setUser(null)
   }
 
