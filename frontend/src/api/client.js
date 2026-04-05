@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'resplendent-hope-production-962f.up.railway.app',
+  baseURL: 'https://resplendent-hope-production-962f.up.railway.app/api',
 })
 
 // Attach JWT token from localStorage to every request
