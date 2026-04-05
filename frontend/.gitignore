@@ -4,17 +4,45 @@ dist/
 build/
 .env
 .env.*
-.DS_Store
+*.env
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-# Vite
-.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
 # VSCode
 .vscode/
-# OS
-Thumbs.db
-Desktop.ini
-# Tailwind
-*.css.map
+.history/
+
+# Test coverage
+coverage/
+
+# Misc
+*.local
+*.cache
+*.tmp
+*.swp
+*.bak
+*.pid
+
+# Dependency directories
+jspm_packages/
+
+# Production
+*.tgz
+
+# Svelte/Vite/Tailwind
+.svelte-kit/
+.svelte/
+*.svelte.d.ts
+*.css.d.ts
+*.tsbuildinfo
+
+# Ignore lock files if not needed
+# package-lock.json
+yarn.lock
+pnpm-lock.yaml

@@ -3,40 +3,60 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
 *.pyc
-*.pyo
-*.pyd
-*.pdb
+*.env
+.env
+.venv
+venv/
+build/
+dist/
+.eggs/
 *.egg-info/
 *.egg
-*.log
-*.sqlite3
-*.db
-*.env
-.env.*
-.envrc
-venv/
-ENV/
-env/
-myenv/
+.DS_Store
 .idea/
 .vscode/
-.DS_Store
 *.swp
 *.bak
 *.tmp
-# Test and coverage
+*.orig
+*.coverage
 htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
+.cache/
+.mypy_cache/
 .pytest_cache/
+
 # FastAPI/Starlette
 instance/
-# VSCode
-.vscode/
+
+# Test output
+junitxml.xml
+coverage.xml
+
 # OS
 Thumbs.db
 Desktop.ini
+
+# VSCode
+.history/
+
+# Local env
+.env.*
+
+# Database
+*.sqlite
+*.db
+
+# Misc
+*.log
+*.pot
+*.mo
+*.pid
+*.seed
+
+# Ignore secrets
+secrets.json
