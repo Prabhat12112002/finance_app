@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://finance-app-7xux.onrender.com',
+  baseURL: 'https://finance-app-two-teal.vercel.app',
 })
 
 // Attach JWT token from localStorage to every request
