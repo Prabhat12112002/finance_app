@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import toast from 'react-hot-toast'
 import { DollarSign } from 'lucide-react'
@@ -67,11 +67,11 @@ const LoginPage = () => {
           </button>
         </form>
 
-        <div className="mt-6 p-3 bg-gray-50 rounded-lg text-xs text-gray-600">
-          <p className="font-semibold mb-1">Sample credentials:</p>
-          <p>admin / admin123 &nbsp;(Admin)</p>
-          <p>analyst / analyst123 &nbsp;(Analyst)</p>
-          <p>viewer / viewer123 &nbsp;(Viewer)</p>
+        <div className="mt-6 text-center text-sm text-gray-600">
+          {"Don't have an account?"}{' '}
+          <Link to="/register" className="text-indigo-600 hover:underline font-medium">
+            Create one
+          </Link>
         </div>
       </div>
     </div>

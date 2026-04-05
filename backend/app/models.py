@@ -29,7 +29,7 @@ class User(Base):
     username = Column(String(100), unique=True, index=True, nullable=False)
     hashed_password = Column(String(255), nullable=False)
     full_name = Column(String(200), nullable=True)
-    role = Column(Enum(RoleEnum, native_enum=False), default=RoleEnum.viewer, nullable=False)
+    role = Column(Enum(RoleEnum, name='role_enum', create_type=False), default=RoleEnum.viewer, nullable=False)
     is_active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -42,7 +42,7 @@ class Transaction(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     amount = Column(Numeric(15, 2), nullable=False)
-    type = Column(Enum(TransactionTypeEnum, native_enum=False), nullable=False)
+    type = Column(Enum(TransactionTypeEnum, name='transaction_type_enum', create_type=False), nullable=False)
     category = Column(String(100), nullable=False)
     transaction_date = Column(Date, nullable=False, default=date.today)
     description = Column(Text, nullable=True)

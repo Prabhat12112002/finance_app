@@ -1,12 +1,15 @@
+import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.database import Base, engine
 from app.routers import auth, users, transactions, dashboard
+from app.config import settings
 
-# Create all tables on startup (for development; use Alembic for production)
-Base.metadata.create_all(bind=engine)
+# Create all tables on startup (for development; production uses migrations)
+if settings.APP_ENV == "development":
+    Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Finance Data Processing API",
@@ -14,9 +17,19 @@ app = FastAPI(
     version="1.0.0",
 )
 
+# Configure CORS for both local and production
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    settings.FRONTEND_URL,
+]
+# Add Vercel preview URLs pattern
+if os.environ.get("VERCEL_URL"):
+    allowed_origins.append(f"https://{os.environ.get('VERCEL_URL')}")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
