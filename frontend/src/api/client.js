@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://finance-app-two-teal.vercel.app',
+  baseURL: 'resplendent-hope-production-962f.up.railway.app',
 })
 
 // Attach JWT token from localStorage to every request
